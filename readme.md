@@ -14,7 +14,8 @@ Body (json)
 "password": "asdas"
 }
 ```
-Create an account
+Create an account,
+if there is any problems such as missing field, email incorrect format, you'll recieve a meaningful error
 
 ### Sign in
 ```
@@ -44,33 +45,3 @@ will return something if you're autherizied
 - express (http management tool)
 - passport (Passport is authentication middleware)
 
-## /SignUp
-Post: [Email, Password]   
-
-## /Login
-Post: [Username, Password]
-
-## /signout
-Post: [Username, Password]
-
-```
-router.get('/signout', passport.authenticate('jwt', { session: false}), function(req, res) {
-  req.logout();
-  res.json({success: true, msg: 'Sign out successfully.'});
-});
-```
-
-## /User
-```
-router.get('/book', passport.authenticate('jwt', { session: false}), function(req, res) {
-  var token = getToken(req.headers);
-  if (token) {
-    Book.find(function (err, books) {
-      if (err) return next(err);
-      res.json(books);
-    });
-  } else {
-    return res.status(403).send({success: false, msg: 'Unauthorized.'});
-  }
-});
-```
