@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 router.post("/", (req, res) => {
-  var example = { "Animal": "Dogs" };
+  var example = "signed out";
   return res.json(example);
 })
 

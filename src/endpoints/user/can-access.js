@@ -1,10 +1,10 @@
 var express = require('express')
 var router = express.Router()
 const passport = require('passport');
+const isAuth = require('../../commons/is-auth')
 
-router.get("/", passport.authenticate('jwt', { session: false }), (req, res) => {
-  var example = { "Animal": "Dogs" };
-  return res.json(example);
+router.get("/", isAuth(), (req, res) => {
+  return res.json({ "Animal": "Dogs" });
 })
 
 module.exports = router;

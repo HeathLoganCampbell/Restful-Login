@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path')
 require('dotenv').config()
 
-const isAuth = require('./commons/is-auth');
+const isAuth = require('./commons/auth-strat');
 const db = require('./database');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,17 +19,11 @@ app.use((req, res, next) => {
   next();
 });
 
-const enderpoints = require("./endpoints");
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/api", enderpoints)
-
-app.get("/", (req, res) => {
-  var example = { "Animal": "Dogs" };
-  return res.json(example);
-})
 
 
 //Sync types
@@ -47,12 +41,23 @@ isAuth(passport);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+const enderpoints = require("./endpoints");
+app.use("/api", enderpoints)
+
+app.get("/", (req, res) => {
+  var example = { "Animal": "Dogs" };
+  return res.json(example);
+})
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+
 
 
 app.listen(port, () => {
