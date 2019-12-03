@@ -23,6 +23,14 @@ Body (json)
 Create an account,
 if there is any problems such as missing field, email incorrect format, you'll recieve a meaningful error
 
+**Successful output**
+```json
+{
+    "message": "successfully created new user",
+    "version": "yeet"
+}
+```
+
 <details><summary>Click for HTTP Request</summary>
 <p>
 
@@ -53,6 +61,14 @@ Body (json)
 ```
 Get your jwt token from the server
 
+**Successful output**
+```json
+{
+    "success": true,
+    "token": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNTc1Mzc4MzUyLCJleHAiOjE1NzUzOTYzNTJ9.OMi6iXhdqdFI0iFKJSyx0hLJPhnXTUVI6VW7l_C3n20"
+}
+```
+
 <details><summary>Click for HTTP Request</summary>
 <p>
 
@@ -77,6 +93,13 @@ GET <url>/api/user/can-access
 ```
 
 will return something if you're autherizied
+
+**Successful output**
+```json
+{
+    "Animal": "Dogs"
+}
+```
 
 <details><summary>Click for HTTP Request</summary>
 <p>
