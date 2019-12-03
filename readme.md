@@ -124,3 +124,7 @@ cache-control: no-cache
 - express (http management tool)
 - passport (Passport is authentication middleware)
 
+## What I would do differently next time
+* I would first formilize the return stucture of payloads, so it's less messy
+* I would use another more structured language like java or C# (Maybe even typescript)
+
