@@ -10,6 +10,13 @@ so we need modular code.
 /user
 ```
 
+## Tools
+- MySql (database)
+- jwt (Json web tokens)
+- sequelize (MySql ORM)
+- express (http management tool)
+- passport (Passport is authentication middleware)
+
 ## /SignUp
 Post: [Email, Password]   
 
